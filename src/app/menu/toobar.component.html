@@ -1,0 +1,31 @@
+<ng-container>
+<mat-toolbar color="primary" class="example-header">
+    <button type="button" mat-icon-button (click)="sidenav.open()"><mat-icon>more_vert</mat-icon></button>
+    <h3  [style.color]= "'white'">INFAST 2</h3>
+    <span class="example-space"></span>
+    <span [style.color]= "'white'"[hidden]="!loggedIn" ><a mat-button> INFAST P1 </a></span>
+    <span [style.color]= "'white'"[hidden]="!loggedIn" ><a mat-button> INFAST P2 </a></span>
+    <span [style.color]= "'white'"[hidden]="!loggedIn" ><a mat-button> INFAST P3 </a></span>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-containera">
+      <!--mode="push" -> es usado para mover a un castado a la hora de salir el sidenav-->
+      <mat-sidenav #sidenav class="example-sidenav" mode="push">
+        <div>
+
+        <mat-form-field>
+          <mat-select placeholder="Select Asistencial">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+
+        <button routerLink="/stepper" type="button" mat-raised-button><mat-icon>home</mat-icon>Steper</button>
+      </mat-sidenav>
+      <router-outlet></router-outlet>
+</mat-sidenav-container>
+  <mat-toolbar class="example-footer">by. Anthony Carrasco</mat-toolbar>
+</ng-container>
+
