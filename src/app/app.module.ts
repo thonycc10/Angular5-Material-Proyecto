@@ -17,9 +17,8 @@ import {
   MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import { ToobarComponent } from './menu/toobar.component';
-import { StepperComponent } from './stepper/stepper.component';
+import {StepperComponent} from './stepper/stepper.component';
 import {AppRoutingModule} from './app-routing.module';
-import { HolaComponent } from './hola/hola.component';
 import { FormularioReactComponent } from './formulario-react/formulario-react.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
@@ -30,8 +29,7 @@ import {HttpModule} from '@angular/http';
     AppComponent,
     ToobarComponent,
     StepperComponent,
-    HolaComponent,
-    FormularioReactComponent
+    FormularioReactComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +73,6 @@ import {HttpModule} from '@angular/http';
     MatTooltipModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

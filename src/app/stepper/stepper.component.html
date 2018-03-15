@@ -8,15 +8,15 @@
 
             <div class="container">
               <div class="row">
-                <div class="col-md-3">
-                  <mat-form-field>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
                     <span matTooltip="Nombre del Area Hospitalaria" matTooltipPosition="above">
                      <input matInput placeholder="Nombre Area" formControlName="firstCtrl" required>
                     </span>
                 </mat-form-field>
                 </div>
-                <div class="col-md-3">
-                <mat-form-field>
+                <div class="col-md-6">
+                <mat-form-field class="example-full-width">
                   <span matTooltip="Seleccione Zona" matTooltipPosition="above">
                     <mat-select placeholder="Zona ">
                       <mat-option mat-list-item *ngFor="let zo of zona" [value]="zo.value">
@@ -26,8 +26,10 @@
                   </span>
                  </mat-form-field>
                 </div>
-                <div class="col-md-3">
-                  <mat-form-field>
+              </div>
+                <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
                     <span matTooltip="Seleccione Empleado Responable" matTooltipPosition="above">
                       <mat-select placeholder="Empleado Responsable">
                         <mat-option mat-list-item *ngFor="let em of empleado" [value]="em.value">
@@ -37,8 +39,8 @@
                     </span>
                   </mat-form-field>
                 </div>
-                <div class="col-md-3">
-                  <mat-form-field>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
                      <span matTooltip="Seleccione Departamentos" matTooltipPosition="above">
                     <mat-select placeholder="Departamentos" [formControl]="toppings" multiple>
                       <mat-select-trigger>
@@ -51,6 +53,11 @@
                     </mat-select>
                     </span>
                   </mat-form-field>
+                </div>
+                </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <mat-checkbox>Activo</mat-checkbox>
                 </div>
               </div>
           </div>
@@ -65,6 +72,8 @@
       <!--PASO 2-->
       <mat-card class="demo-panel">
         <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Departamento</ng-template>
+
           <div class="container">
             <div class="row">
               <div class="col-md-6">
@@ -79,7 +88,7 @@
                   <span matTooltip="Seleccione el Empleado Responsable" matTooltipPosition="above">
                     <input placeholder="Empleado Responsable" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                      <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
                         {{ option }}
                        </mat-option>
                     </mat-autocomplete>
@@ -90,28 +99,34 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <mat-form-field class="inputauto-full-width ">
-                  <span matTooltip="Seleccione el Empleado Responsable" matTooltipPosition="above">
-                    <input placeholder="Empleado Responsable" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                        {{ option }}
-                       </mat-option>
-                    </mat-autocomplete>
-                  </span>
+                <mat-form-field class="inputauto-full-width">
+                     <span matTooltip="Seleccione Area" matTooltipPosition="above">
+                    <mat-select placeholder="Area" [formControl]="toppings" multiple>
+                      <mat-select-trigger>
+                        {{toppings.value ? toppings.value[0] : ''}}
+                        <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                            (+{{toppings.value.length - 1}} others)
+                         </span>
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let topping of toppingListArea" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                    </span>
                 </mat-form-field>
-                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+                <button type="button" mat-icon-button (click)="openDialog()"><mat-icon color="accent">add_circle</mat-icon></button>
               </div>
               <div class="col-md-6">
-                <mat-form-field class="inputauto-full-width ">
-                  <span matTooltip="Seleccione el Empleado Responsable" matTooltipPosition="above">
-                    <input placeholder="Empleado Responsable" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                        {{ option }}
-                       </mat-option>
-                    </mat-autocomplete>
-                  </span>
+                <mat-form-field class="inputauto-full-width">
+                     <span matTooltip="Seleccione Servicios" matTooltipPosition="above">
+                    <mat-select placeholder="Servicios" [formControl]="toppings" multiple>
+                      <mat-select-trigger>
+                        {{toppings.value ? toppings.value[0] : ''}}
+                        <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                            (+{{toppings.value.length - 1}} others)
+                         </span>
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let topping of toppingListServicio" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                    </span>
                 </mat-form-field>
                 <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
               </div>
@@ -128,8 +143,8 @@
                 <mat-checkbox>Activo</mat-checkbox>
               </div>
             </div>
-
           </div>
+
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>
@@ -138,12 +153,80 @@
       </mat-card>
     </mat-step>
     <mat-step>
+      <!--PASO 3-->
       <mat-card class="demo-panel">
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Servicio</ng-template>
-          <mat-form-field>
-            <input matInput placeholder="Address" formControlName="secondCtrl" required>
-          </mat-form-field>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <span matTooltip="Nombre del Servicio" matTooltipPosition="above">
+                     <input matInput placeholder="Nombre Servicio" formControlName="secondCtrl" required>
+                    </span>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="inputauto-full-width">
+                  <input placeholder="Empleado Responsable" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let optiona of options" [value]="optiona">
+                      {{ optiona }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+              <mat-form-field class="inputauto-full-width">
+              <span matTooltip="Seleccione las Salas" matTooltipPosition="above">
+              <mat-select placeholder="Salas" [formControl]="toppings" multiple>
+              <mat-select-trigger>
+              {{toppings.value ? toppings.value[0] : ''}}
+              <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+              (+{{toppings.value.length - 1}} others)
+              </span>
+              </mat-select-trigger>
+              <mat-option *ngFor="let topping of toppingListSalas" [value]="topping">{{topping}}</mat-option>
+              </mat-select>
+              </span>
+              </mat-form-field>
+              <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+            </div>
+              <div class="col-md-6">
+              <mat-form-field class="inputauto-full-width">
+              <span matTooltip="Seleccione los Departamentos" matTooltipPosition="above">
+              <mat-select placeholder="Departamentos" [formControl]="toppings" multiple>
+              <mat-select-trigger>
+              {{toppings.value ? toppings.value[0] : ''}}
+              <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+              (+{{toppings.value.length - 1}} others)
+              </span>
+              </mat-select-trigger>
+              <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+              </mat-select>
+              </span>
+              </mat-form-field>
+              <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10">
+                  <span matTooltip="Describa la función del departamento" matTooltipPosition="above">
+                <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder="Descripción..."></textarea>
+                </mat-form-field>
+                  </span>
+              </div>
+              <div class="col-md-2" style="top: 35px;">
+                <mat-checkbox>Activo</mat-checkbox>
+              </div>
+            </div>
+          </div>
+
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>
@@ -152,22 +235,75 @@
       </mat-card>
     </mat-step>
     <mat-step>
+      <!--PASO 4-->
       <mat-card class="demo-panel">
         <form [formGroup]="secondFormGroup">
-          <mat-card-title>
           <ng-template matStepLabel>Salas</ng-template>
-          </mat-card-title>
-          <mat-card-content>
-          <mat-form-field>
-            <input matInput placeholder="Address" formControlName="secondCtrl" required>
-          </mat-form-field>
-          </mat-card-content>
-          <mat-card-footer>
-          <div>
-            <button mat-button matStepperPrevious>Guardar</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <span matTooltip="Nombre del Sala" matTooltipPosition="above">
+                     <input matInput placeholder="Nombre Sala" formControlName="secondCtrl" required>
+                    </span>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="inputauto-full-width">
+                    <mat-select placeholder="Select Zonas">
+                      <mat-option mat-list-item *ngFor="let food of zona" [value]="food.value">
+                        {{ food.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="inputauto-full-width">
+                  <mat-select placeholder="Select Area">
+                    <mat-option mat-list-item *ngFor="let food of area" [value]="food.value">
+                      {{ food.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="inputauto-full-width">
+                  <mat-select placeholder="Select Departamento">
+                    <mat-option mat-list-item *ngFor="let food of Departamento" [value]="food.value">
+                      {{ food.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="inputauto-full-width">
+                  <mat-select placeholder="Select Servicio">
+                    <mat-option mat-list-item *ngFor="let food of Servicio" [value]="food.value">
+                      {{ food.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+              </div>
+
+              <div class="col-md-6" style="top: 20px;">
+                <mat-checkbox>Activo</mat-checkbox>
+              </div>
+            </div>
           </div>
-          </mat-card-footer>
+
+          <div>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button matStepperPrevious>Guardar</button>
+          </div>
         </form>
       </mat-card>
     </mat-step>
