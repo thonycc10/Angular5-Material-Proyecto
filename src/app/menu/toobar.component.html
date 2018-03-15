@@ -1,31 +1,65 @@
 <ng-container>
 <mat-toolbar color="primary" class="example-header">
-    <button type="button" mat-icon-button (click)="sidenav.open()"><mat-icon>more_vert</mat-icon></button>
+    <button type="button" mat-icon-button (click)="sidenav.open()"><mat-icon>menu</mat-icon></button>
     <h3  [style.color]= "'white'">INFAST 2</h3>
     <span class="example-space"></span>
-    <span [style.color]= "'white'"[hidden]="!loggedIn" ><a mat-button> INFAST P1 </a></span>
-    <span [style.color]= "'white'"[hidden]="!loggedIn" ><a mat-button> INFAST P2 </a></span>
-    <span [style.color]= "'white'"[hidden]="!loggedIn" ><a mat-button> INFAST P3 </a></span>
+
+
+  <div mat-card-avatar class="example-header-image"></div>
+  <span [style.color]= "'white'" [matMenuTriggerFor]="menu">
+      <a mat-button>USUARIO INFAST</a>
+    </span>
+    <span [style.color]= "'white'"><a mat-icon-button [matMenuTriggerFor]="menu1"><mat-icon>new_releases</mat-icon></a></span>
 </mat-toolbar>
 
 <mat-sidenav-container class="example-containera">
       <!--mode="push" -> es usado para mover a un castado a la hora de salir el sidenav-->
-      <mat-sidenav #sidenav class="example-sidenav" mode="push">
-        <div>
+      <mat-sidenav #sidenav class="example-sidenav" mode="push" [fixedInViewport]="mobileQuery.matches">
+
+        <mat-nav-list>
 
         <mat-form-field>
           <mat-select placeholder="Select Asistencial">
-            <mat-option *ngFor="let food of foods" [value]="food.value">
+            <mat-option mat-list-item *ngFor="let food of foods" [value]="food.value">
               {{ food.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        </div>
 
-        <button routerLink="/stepper" type="button" mat-raised-button><mat-icon>home</mat-icon>Steper</button>
+          <a mat-list-item routerLink="/hola" (click)="close()"><mat-icon>home</mat-icon>Prueba</a>
+          <a mat-list-item routerLink="/stepper" (click)="close()"><mat-icon>settings_backup_restore</mat-icon>Stepper Infast2</a>
+          <a mat-list-item routerLink="/formularioReact" (click)="close()"><mat-icon>line_style</mat-icon>Formulario Reactivo</a>
+        </mat-nav-list>
+
       </mat-sidenav>
       <router-outlet></router-outlet>
 </mat-sidenav-container>
   <mat-toolbar class="example-footer">by. Anthony Carrasco</mat-toolbar>
 </ng-container>
 
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>perm_identity</mat-icon>
+    <span>Perfil</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>settings_power</mat-icon>
+    <span>Cerrar Sesión</span>
+  </button>
+</mat-menu>
+<!--<mat-menu #subMenu="matMenu">-->
+  <!--<button mat-menu-item><mat-icon>face</mat-icon><span>Check Voicemail</span></button>-->
+  <!--<button mat-menu-item></button>-->
+  <!--<button mat-menu-item></button>-->
+<!--</mat-menu>-->
+
+<mat-menu #menu1="matMenu">
+  <button mat-menu-item>
+    <mat-icon>bubble_chart</mat-icon>
+    <span>Ayuda</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>nature_people</mat-icon>
+    <span>Informacion Infast</span>
+  </button>
+</mat-menu>

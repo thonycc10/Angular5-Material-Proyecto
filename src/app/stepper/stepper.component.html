@@ -2,7 +2,7 @@
   <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
     <mat-step [stepControl]="firstFormGroup">
       <mat-card>
-        <form>
+        <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>Area</ng-template>
           <mat-form-field>
             <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
@@ -15,7 +15,7 @@
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
       <mat-card>
-        <form>
+        <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Departamento</ng-template>
           <mat-form-field>
             <input matInput placeholder="Address" formControlName="secondCtrl" required>
@@ -29,7 +29,7 @@
     </mat-step>
     <mat-step>
       <mat-card>
-        <form>
+        <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Servicio</ng-template>
           <mat-form-field>
             <input matInput placeholder="Address" formControlName="secondCtrl" required>
@@ -43,7 +43,7 @@
     </mat-step>
     <mat-step>
       <mat-card>
-        <form>
+        <form [formGroup]="secondFormGroup">
           <mat-card-title>
           <ng-template matStepLabel>Salas</ng-template>
           </mat-card-title>
