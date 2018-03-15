@@ -1,0 +1,48 @@
+<ng-container>
+<div *ngIf="!name; else forminfo">
+
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)" class=""> <!-- validaciones-->
+    <div class="form-container">
+      <div class="row columns">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title> Formulario Reactivo</mat-card-title>
+            <mat-card-subtitle>por Thony</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input formControlName="name" matInput placeholder="Nombre" value="">
+            </mat-form-field>
+            <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched"> {{ titleAlert }}</div>
+
+            <mat-form-field class="example-full-width">
+              <textarea matInput formControlName="description" placeholder="Descripción"></textarea>
+            </mat-form-field>
+            <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">{{ alertArea }}</div>
+
+            <mat-checkbox  formControlName="validate" name="validate" value="1" color="primary">Minimo 5 caracteres</mat-checkbox>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="accent" (click)="toggleDisplay()" [disabled]="!rForm.valid">Enviar</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </form>
+</div>
+</ng-container>
+<ng-template #forminfo>
+  <div class="form-container">
+    <div class="row columns">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title> <h1> Nombre : {{ name }} </h1></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p> Descripción:  {{ description }} </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</ng-template>

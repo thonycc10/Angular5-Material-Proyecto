@@ -1,0 +1,47 @@
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
+@Component({
+  selector: 'app-formulario-react',
+  templateUrl: './formulario-react.component.html',
+  styleUrls: ['./formulario-react.component.css'],
+  providers: [FormBuilder]
+})
+export class FormularioReactComponent implements OnInit {
+  rForm: FormGroup;
+  post: any;
+  description = '';
+  name = '';
+  titleAlert = 'Este controlador es Requerido';
+  alertArea = 'Es Requerido mas de 30 caracteres y menos de 500 caracteres';
+  private loggedIn = false;
+  constructor(private fb: FormBuilder) {
+    this.rForm = fb.group({
+      'name': [null, Validators.required],
+      'description': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
+      'validate' : ''
+    });
+  }
+  addPost(post) { // lo que el formulario agrega
+    this.description = post.description;
+    this.name = post.name;
+  }
+  toggleDisplay() {
+    this.loggedIn = !this.loggedIn;
+  }
+  ngOnInit() {
+    this.rForm.get('validate').valueChanges.subscribe(
+      (validate) => {
+        if (validate == '1') {
+          this.rForm.get('name').setValidators([Validators.required, Validators.minLength(5)]);
+          this.titleAlert = 'Usted necesita escribir mas de 5 caracteres';
+        } else {
+          this.rForm.get('name').setValidators(Validators.required);
+          this.titleAlert = 'Este controlador es Requerido';
+        }
+        this.rForm.get('name').updateValueAndValidity();
+      }
+    );
+  }
+
+}
