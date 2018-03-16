@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import {EmpleadoDialogComponent} from './empleado-dialog/empleado-dialog.component';
 
 @Component({
   selector: 'app-stepper',
@@ -13,7 +14,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 })
 
 export class StepperComponent implements OnInit {
-
+  dialogResult = '';
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -67,5 +68,16 @@ export class StepperComponent implements OnInit {
   }
   filter(val: string): string[] {
     return this.options.filter(option => option.toLowerCase().indexOf(val.toLowerCase()) === 0);
+  }
+  openDialog() {
+    let dialogRef = this.dialog.open(EmpleadoDialogComponent, {
+      width: '600px',
+      data: 'Somos infast'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`close dialog: ${result}`);
+      this.dialogResult = result;
+    });
   }
 }

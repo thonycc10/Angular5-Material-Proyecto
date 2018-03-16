@@ -22,6 +22,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { FormularioReactComponent } from './formulario-react/formulario-react.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import { EmpleadoDialogComponent } from './stepper/empleado-dialog/empleado-dialog.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {HttpModule} from '@angular/http';
     ToobarComponent,
     StepperComponent,
     FormularioReactComponent,
+    EmpleadoDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,5 +76,6 @@ import {HttpModule} from '@angular/http';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [ EmpleadoDialogComponent ]
 })
 export class AppModule { }

@@ -63,6 +63,7 @@
           </div>
 
           <div>
+            <button mat-button matStepperNext>Guardar</button>
             <button mat-button matStepperNext>Next</button>
           </div>
         </form>
@@ -94,12 +95,12 @@
                     </mat-autocomplete>
                   </span>
                 </mat-form-field>
-                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+                <button type="button" (click)="openDialog()" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <mat-form-field class="inputauto-full-width">
+                <mat-form-field class="example-full-width">
                      <span matTooltip="Seleccione Area" matTooltipPosition="above">
                     <mat-select placeholder="Area" [formControl]="toppings" multiple>
                       <mat-select-trigger>
@@ -112,10 +113,10 @@
                     </mat-select>
                     </span>
                 </mat-form-field>
-                <button type="button" mat-icon-button (click)="openDialog()"><mat-icon color="accent">add_circle</mat-icon></button>
+                <!--<button type="button" mat-icon-button><mat-icon color="accent">add_circle</mat-icon></button>-->
               </div>
               <div class="col-md-6">
-                <mat-form-field class="inputauto-full-width">
+                <mat-form-field class="example-full-width">
                      <span matTooltip="Seleccione Servicios" matTooltipPosition="above">
                     <mat-select placeholder="Servicios" [formControl]="toppings" multiple>
                       <mat-select-trigger>
@@ -128,7 +129,7 @@
                     </mat-select>
                     </span>
                 </mat-form-field>
-                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+                <!--<button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>-->
               </div>
             </div>
             <div class="row">
@@ -147,6 +148,7 @@
 
           <div>
             <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Guardar</button>
             <button mat-button matStepperNext>Next</button>
           </div>
         </form>
@@ -176,12 +178,12 @@
                     </mat-option>
                   </mat-autocomplete>
                 </mat-form-field>
-                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+                <button type="button" mat-icon-button (click)="openDialog()"><mat-icon color="accent">add_circle</mat-icon></button>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-              <mat-form-field class="inputauto-full-width">
+              <mat-form-field class="example-full-width">
               <span matTooltip="Seleccione las Salas" matTooltipPosition="above">
               <mat-select placeholder="Salas" [formControl]="toppings" multiple>
               <mat-select-trigger>
@@ -194,10 +196,10 @@
               </mat-select>
               </span>
               </mat-form-field>
-              <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+              <!--<button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>-->
             </div>
               <div class="col-md-6">
-              <mat-form-field class="inputauto-full-width">
+              <mat-form-field class="example-full-width">
               <span matTooltip="Seleccione los Departamentos" matTooltipPosition="above">
               <mat-select placeholder="Departamentos" [formControl]="toppings" multiple>
               <mat-select-trigger>
@@ -210,7 +212,7 @@
               </mat-select>
               </span>
               </mat-form-field>
-              <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+              <!--<button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>-->
             </div>
             </div>
             <div class="row">
@@ -229,6 +231,7 @@
 
           <div>
             <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Guardar</button>
             <button mat-button matStepperNext>Next</button>
           </div>
         </form>
@@ -262,36 +265,36 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <mat-form-field class="inputauto-full-width">
+                <mat-form-field class="example-full-width">
                   <mat-select placeholder="Select Area">
                     <mat-option mat-list-item *ngFor="let food of area" [value]="food.value">
                       {{ food.viewValue }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
-                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+                <!--<button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>-->
               </div>
               <div class="col-md-6">
-                <mat-form-field class="inputauto-full-width">
+                <mat-form-field class="example-full-width">
                   <mat-select placeholder="Select Departamento">
                     <mat-option mat-list-item *ngFor="let food of Departamento" [value]="food.value">
                       {{ food.viewValue }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
-                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+                <!--<button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>-->
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <mat-form-field class="inputauto-full-width">
+                <mat-form-field class="example-full-width">
                   <mat-select placeholder="Select Servicio">
                     <mat-option mat-list-item *ngFor="let food of Servicio" [value]="food.value">
                       {{ food.viewValue }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
-                <button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>
+                <!--<button type="button" mat-icon-button ><mat-icon color="accent">add_circle</mat-icon></button>-->
               </div>
 
               <div class="col-md-6" style="top: 20px;">
