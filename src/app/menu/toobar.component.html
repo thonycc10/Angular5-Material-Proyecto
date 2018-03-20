@@ -1,8 +1,8 @@
 <ng-container>
-<mat-toolbar  class="gradelyColor example-header example-border " >
+<mat-toolbar  class="gradelyColor example-header example-border" >
     <mat-toolbar-row>
       <button type="button" mat-icon-button (click)="sidenav.open()"><mat-icon>menu</mat-icon></button>
-      <a mat-list-item routerLink="/home"><img src="../../assets/logo.png" width="100" height="42"></a>
+      <a mat-list-item routerLink="/home"><img src="../../assets/logo.png" class="w3-animate-zoom" width="100" height="42"></a>
       <!--<h3  [style.color]= "'white'">INFAST 2</h3>-->
       <span class="example-space"></span>
 
@@ -35,7 +35,7 @@
       </mat-sidenav>
       <router-outlet></router-outlet>
 </mat-sidenav-container>
-  <mat-toolbar class="example-footer gradelyColor2 example-border1" style="color: white">by. Anthony Carrasco</mat-toolbar>
+  <mat-toolbar class="example-footer gradelyColor2 example-border1 w3-container w3-center w3-animate-right" style="color: white">by. Attlaris</mat-toolbar>
 </ng-container>
 
 <mat-menu #menu="matMenu">
