@@ -3,13 +3,32 @@
   height: 300px;
   border: 1px solid rgba(111,111,111,0.50);
 }
-
+/*ejemplo 1 - Color combinacion*/
+.gradelyColor{
+  background: linear-gradient(to right, white, deepskyblue, lightgreen);
+}
+.gradelyColor1{
+  background: linear-gradient(to right, dodgerblue, limegreen);
+}
+.gradelyColor2{
+  background: linear-gradient(to right, limegreen, dodgerblue);
+}
+ /*Uso para border pintura*/
+.example-border{
+  text-shadow: 2px 2px 5px black;
+}
+.example-border1{
+  text-shadow: 2px 2px 5px white;
+}
+/*Uso para sombras cuadros*/
+.example-somber{
+  box-shadow: 10px 10px 5px grey;
+}
 .example-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
 }
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');

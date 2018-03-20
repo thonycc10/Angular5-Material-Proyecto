@@ -7,4 +7,7 @@
 .margin0 {
   margin-top: 0px;
 }
-
+/*Uso para sombras cuadros*/
+.example-sombra{
+  box-shadow: 10px 10px 5px grey !important;
+}

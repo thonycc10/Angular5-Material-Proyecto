@@ -1,15 +1,16 @@
 <ng-container>
-<mat-toolbar color="primary" class="example-header">
-    <button type="button" mat-icon-button (click)="sidenav.open()"><mat-icon>menu</mat-icon></button>
-    <h3  [style.color]= "'white'">INFAST 2</h3>
-    <span class="example-space"></span>
+<mat-toolbar  class="gradelyColor1 example-header example-border " >
+    <mat-toolbar-row>
+      <button type="button" mat-icon-button (click)="sidenav.open()"><mat-icon>menu</mat-icon></button>
+      <h3  [style.color]= "'white'">INFAST 2</h3>
+      <span class="example-space"></span>
 
-
-    <div mat-card-avatar class="example-header-image"></div>
-    <span [style.color]= "'white'" [matMenuTriggerFor]="menu">
-      <a mat-button>USUARIO INFAST</a>
-    </span>
-    <span [style.color]= "'white'"><a mat-icon-button [matMenuTriggerFor]="menu1"><mat-icon>new_releases</mat-icon></a></span>
+      <div mat-card-avatar class="example-header-image"></div>
+      <span [style.color]= "'white'" [matMenuTriggerFor]="menu">
+        <a mat-button>USUARIO INFAST</a>
+      </span>
+      <span [style.color]= "'white'"><a mat-icon-button [matMenuTriggerFor]="menu1"><mat-icon>new_releases</mat-icon></a></span>
+    </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-sidenav-container class="example-containera">
@@ -28,13 +29,13 @@
 
           <a mat-list-item routerLink="/stepper" (click)="close()"><mat-icon>settings_backup_restore</mat-icon>Stepper Infast2</a>
           <a mat-list-item routerLink="/formularioReact" (click)="close()"><mat-icon>line_style</mat-icon>Formulario Reactivo</a>
-          <a mat-list-item routerLink="/datatable" (click)="close()"><mat-icon>line_style</mat-icon>Data Table</a>
+          <a mat-list-item routerLink="/datatable" (click)="close()"><mat-icon>border_all</mat-icon>Data Table</a>
         </mat-nav-list>
 
       </mat-sidenav>
       <router-outlet></router-outlet>
 </mat-sidenav-container>
-  <mat-toolbar class="example-footer">by. Anthony Carrasco</mat-toolbar>
+  <mat-toolbar class="example-footer gradelyColor2 example-border1">by. Anthony Carrasco</mat-toolbar>
 </ng-container>
 
 <mat-menu #menu="matMenu">

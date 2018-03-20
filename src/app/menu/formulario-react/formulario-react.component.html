@@ -4,7 +4,7 @@
   <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)" class=""> <!-- validaciones-->
     <div class="form-container">
       <div class="row columns">
-        <mat-card class="example-card">
+        <mat-card class="example-card example-sombra">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title> Formulario Reactivo</mat-card-title>
@@ -35,7 +35,7 @@
 <ng-template #forminfo>
   <div class="form-container">
     <div class="row columns">
-      <mat-card class="example-card">
+      <mat-card class="example-card example-sombra">
         <mat-card-header>
           <mat-card-title> <h1> Nombre : {{ name }} </h1></mat-card-title>
         </mat-card-header>
