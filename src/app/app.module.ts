@@ -9,7 +9,7 @@ import {
   MatAutocompleteModule,
   MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule,
   MatIconModule,
-  MatInputModule, MatListModule, MatMenuModule, MatSelectModule,
+  MatInputModule, MatListModule, MatMenuModule, MatProgressSpinnerModule, MatSelectModule,
   MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatStepperModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import { ToobarComponent } from './menu/toobar.component';
@@ -55,6 +55,7 @@ import {MenuesModule} from './modules/menues/menues.module';
     MatSlideToggleModule,
     MatStepperModule,
     MatTooltipModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

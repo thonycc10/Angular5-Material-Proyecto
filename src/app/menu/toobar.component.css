@@ -5,20 +5,20 @@
 }
 /*ejemplo 1 - Color combinacion*/
 .gradelyColor{
-  background: linear-gradient(to right, white, deepskyblue, lightgreen);
+  background: linear-gradient(to right, white, #A8BF2F, #1F90C9,#1161A2);
 }
 .gradelyColor1{
   background: linear-gradient(to right, dodgerblue, limegreen);
 }
 .gradelyColor2{
-  background: linear-gradient(to right, limegreen, dodgerblue);
+  background: linear-gradient(to right, #1161A2, #1F90C9, #A8BF2F, white);
 }
  /*Uso para border pintura*/
 .example-border{
   text-shadow: 2px 2px 5px black;
 }
 .example-border1{
-  text-shadow: 2px 2px 5px white;
+  text-shadow: 2px 2px 5px black;
 }
 /*Uso para sombras cuadros*/
 .example-somber{
