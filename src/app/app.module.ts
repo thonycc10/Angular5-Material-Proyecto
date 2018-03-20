@@ -7,22 +7,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {
   MatAutocompleteModule,
-  MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule,
-  MatDividerModule, MatExpansionModule, MatGridListModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule,
   MatIconModule,
-  MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule,
-  MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
-  MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule,
-  MatSortModule, MatStepperModule,
-  MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule
+  MatInputModule, MatListModule, MatMenuModule, MatSelectModule,
+  MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatStepperModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import { ToobarComponent } from './menu/toobar.component';
-import {StepperComponent} from './stepper/stepper.component';
+import {StepperComponent} from './menu/stepper/stepper.component';
 import {AppRoutingModule} from './app-routing.module';
-import { FormularioReactComponent } from './formulario-react/formulario-react.component';
+import { FormularioReactComponent } from './menu/formulario-react/formulario-react.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import { EmpleadoDialogComponent } from './stepper/empleado-dialog/empleado-dialog.component';
+import { EmpleadoDialogComponent } from './menu/stepper/empleado-dialog/empleado-dialog.component';
+import {MenuesModule} from './modules/menues/menues.module';
 
 
 @NgModule({
@@ -34,6 +31,7 @@ import { EmpleadoDialogComponent } from './stepper/empleado-dialog/empleado-dial
     EmpleadoDialogComponent,
   ],
   imports: [
+    MenuesModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -41,37 +39,21 @@ import { EmpleadoDialogComponent } from './stepper/empleado-dialog/empleado-dial
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    MatToolbarModule,
     MatAutocompleteModule,
     MatButtonModule,
-    MatButtonToggleModule,
+    MatListModule,
     MatCardModule,
     MatCheckboxModule,
-    MatChipsModule,
-    MatDatepickerModule,
     MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
     MatIconModule,
     MatInputModule,
-    MatListModule,
     MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,
     MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
     MatStepperModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
     MatTooltipModule,
   ],
   providers: [],
